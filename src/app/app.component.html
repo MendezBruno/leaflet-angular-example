@@ -1,0 +1,27 @@
+<div
+	leaflet
+	leafletDraw
+	style="height: 100vh;"
+	[leafletOptions]="options"
+	[leafletDrawOptions]="drawOptions"
+	(leafletDrawCreated)="onDrawCreated($event)"
+>
+	<div [leafletLayer]="drawnItems"></div>
+</div>
+<div class="one">
+	<h5>direcciones</h5>
+	<p-autoComplete [(ngModel)]="val" [suggestions]="results" (completeMethod)="search($event)" field="nomenclatura"></p-autoComplete>
+</div>
+<div class="one-up" >
+    <p-button type="text"  (click)="clearMap()" icon="pi pi-trash" label="Clear"></p-button>
+</div>
+<div class="one-up-left" >
+	<button type="text" pButton label="Log Request" (click)="togglePanel(op, $event)"></button>
+</div>
+<p-overlayPanel #op [dismissable]="false" [showCloseIcon]="true">
+    <ng-template pTemplate>
+        {{logs}}
+    </ng-template>
+</p-overlayPanel>
+
+<app-sidebar-address></app-sidebar-address>

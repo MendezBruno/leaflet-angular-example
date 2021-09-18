@@ -1,0 +1,36 @@
+<p-sidebar [(visible)]="display" position="right" styleClass="p-sidebar-lg" >
+    <div class="two">
+        <h5>Provincias</h5> 
+        <span class="p-fluid">
+            <p-autoComplete [(ngModel)]="selectedProvincias" (onSelect)="updateProv()" [suggestions]="filteredProvincias" (completeMethod)="filterCountry($event)" field="nombre" [multiple]="true">
+            </p-autoComplete>
+        </span>
+    </div>
+    <div class="two">
+        <h5>Localidades</h5> 
+        <span class="p-fluid">
+            <p-autoComplete [(ngModel)]="selectedLocalidad"  (onSelect)="updateLoc()" [suggestions]="filteredLocalidad" (completeMethod)="filterLocalidades($event)" field="nombre" [multiple]="true">
+            </p-autoComplete>
+        </span>
+    </div>
+    <div class="two">
+        <h5>Departamento</h5> 
+        <span class="p-fluid">
+            <p-autoComplete [(ngModel)]="selectedDepartamento" (onSelect)="updateDept()" [suggestions]="filteredDepartamento" (completeMethod)="filterDepartamento($event)" field="nombre" [multiple]="true">
+            </p-autoComplete>
+        </span>
+    </div>
+    <div class="two">
+        <h5>Municipio</h5> 
+        <span class="p-fluid">
+            <p-autoComplete [(ngModel)]="selectedMunicipio" (onSelect)="updateDept()" [suggestions]="filteredMunicipio" (completeMethod)="filterMunicipio($event)" field="nombre" [multiple]="true">
+            </p-autoComplete>
+        </span>
+    </div>
+</p-sidebar>
+
+<div class="one" >
+    <p-button type="text"  (click)="display = true" icon="pi pi-plus" label="Show"></p-button>
+</div>
+
+
